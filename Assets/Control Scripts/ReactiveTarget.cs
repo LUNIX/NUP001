@@ -4,6 +4,11 @@ using System.Collections;
 public class ReactiveTarget : MonoBehaviour {
     public void ReactToHit()
     {
+        WanderingAI behavior = GetComponent<WanderingAI>();
+        if (behavior != null)   //Присоединен ли к боту сценарий WanderingAI
+        {
+            behavior.SetAlive(false);
+        }
         StartCoroutine(Die());
     }
     private IEnumerator Die()
